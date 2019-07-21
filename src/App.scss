@@ -1,6 +1,21 @@
+@import 'stylesheets/breakpoints';
 @import 'stylesheets/colours';
 
-.something {
-  color: $mainFont;
-  font-size: 2em;
+.container {
+  display: flex;
+  flex-direction: column;
+  margin: 10px auto;
+  width: 90%;
+
+  header {
+    margin-bottom: 10px;
+  }
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  @media #{$breakpoint-min-sm} {
+    flex-direction: row;
+  }; 
 }

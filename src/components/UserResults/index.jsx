@@ -1,8 +1,9 @@
 import React from 'react';
 import {array} from 'prop-types';
+import Styles from './UserResults.scss';
 
 const userList = ({selectUser, users}) => (
-  <section>
+  <section className={Styles.userList}>
     {users.map(({node}) => {
       const {avatarUrl, login} = node;
       return (
@@ -10,9 +11,10 @@ const userList = ({selectUser, users}) => (
           key={login}
           onClick={() => selectUser(login)}
           data-testid="user"
+          className={Styles.user}
         >
-          {login}
           <img src={avatarUrl} alt={login}/>
+          {login}
         </div>
       );
     })}

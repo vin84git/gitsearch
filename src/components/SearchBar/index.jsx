@@ -23,6 +23,7 @@ const SearchBox = ({userSearch}) => {
         value={searchTerm}
       />
       <button
+        title="Search"
         onClick={submitSearch}
       >
         Search

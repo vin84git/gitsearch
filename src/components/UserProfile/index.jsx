@@ -1,5 +1,7 @@
 import React from 'react';
 import {number, shape, string} from 'prop-types';
+import Styles from './UserProfile.scss';
+
 const UserProfile = ({profile}) => {
   const {avatarUrl, contributionsCollection, createdAt, login, repositories, url} = profile;
   const {
@@ -9,13 +11,13 @@ const UserProfile = ({profile}) => {
   } = contributionsCollection;
   const {totalCount: totalRepos} = repositories;
   return (
-    <article>
+    <article className={Styles.profile}>
       <h2>{login}</h2>
       <span>{totalRepos} Repositories</span>
       <img src={avatarUrl} alt={login} />
       <span>User since {new Date(createdAt).getFullYear()}</span>
       <h3>Contributions this year</h3>
-      <div>
+      <div className={Styles.contributions}>
         <span>Total: {totalContributions}</span>
         <span>Commit Contributions: {totalCommitContributions}</span>
         <span>PR Contributions: {totalPullRequestContributions}</span>
