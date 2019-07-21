@@ -2,9 +2,10 @@ import axios from 'axios';
 
 const userSearch = async (searchTerm) => {
   try {
-    const {data: {data: {search: {edges}}}} = await axios.post({
+    const {data: {data: {search: {edges}}}} = await axios({
       url: 'https://api.github.com/graphql',
       headers: {Authorization: `bearer ${process.env.GIT_AUTH}`},
+      method: 'POST',
       data: {
         query: `
         query UserRepos {

@@ -1,17 +1,22 @@
 import userSearch from '..';
 import mockUserList from '../../../../../__mocks__/userList.json';
-import mockAxios from 'axios';
+import axios from 'axios';
 
 const {data: {search: {edges}}} = mockUserList;
 
+jest.mock('axios', () => ({
+  __esModule: true,
+  default: jest.fn(() => Promise.resolve({data: 'data'}))
+}));
+
 describe('User Search API', () => {
   it('should call userSearch API', async () => {
-    mockAxios.post.mockImplementationOnce(() => Promise.resolve({
+    axios.mockImplementationOnce(() => Promise.resolve({
       data: mockUserList
     }));
     const list = await userSearch('jcotton');
     expect(list).toEqual(edges);
-    expect(mockAxios.post).toHaveBeenCalledWith({
+    expect(axios).toHaveBeenCalledWith({
       data: {
         query: `
         query UserRepos {
@@ -27,12 +32,13 @@ describe('User Search API', () => {
         }`
       },
       url: 'https://api.github.com/graphql',
+      method: 'POST',
       headers: {Authorization: `bearer ${process.env.GIT_AUTH}`}
     });
   });
 
   it('should error', async () => {
-    mockAxios.post.mockImplementationOnce(() => Promise.reject({
+    axios.mockImplementationOnce(() => Promise.reject({
       statusText: 'err'
     }));
     await userSearch('jcotton').catch(err => {

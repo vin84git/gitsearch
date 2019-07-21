@@ -1,3 +1,3 @@
 export default {
-  post: jest.fn(() => Promise.resolve())
+  default: jest.fn(() => Promise.resolve())
 };
