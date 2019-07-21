@@ -3,6 +3,7 @@ import HtmlWebpackPlugin from 'html-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import autoprefixer from 'autoprefixer';
 import StylelintWebpackPlugin from 'stylelint-webpack-plugin';
+import Dotenv from 'dotenv-webpack';
 
 export default function (env, arg) {
 
@@ -70,7 +71,8 @@ export default function (env, arg) {
       new MiniCssExtractPlugin(),
       new HtmlWebpackPlugin({
         template: './public/index.html'
-      })
+      }),
+      new Dotenv()
     ],
 
     devServer: {
