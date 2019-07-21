@@ -25,6 +25,7 @@ describe('User Search API', () => {
               node {
                 ...on User {
                   login
+                  avatarUrl
                 }
               }
             }

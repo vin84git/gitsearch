@@ -14,6 +14,7 @@ const userSearch = async (searchTerm) => {
               node {
                 ...on User {
                   login
+                  avatarUrl
                 }
               }
             }

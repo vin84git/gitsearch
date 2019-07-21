@@ -1,21 +1,37 @@
-import React, {useState} from 'react';
+import React, {useReducer} from 'react';
 import userQuery from './api/queries/users';
 import SearchBar from './components/SearchBar';
+import UserResults from './components/UserResults';
+
+const initialState = {
+  userList: []
+};
+
+const reducer = (state, action) => {
+  switch (action.type) {
+    case 'resultsLoaded':
+      return {
+        ...state,
+        userList: action.data
+      };
+    default:
+      return state;
+  }
+};
 
 const App = () => {
-  const [response, setResponse] = useState([]);
+  const [{userList}, dispatch] = useReducer(reducer, initialState);
   const search = async (value) => {
     const results = await userQuery(value);
-    setResponse(results);
+    dispatch({
+      type: 'resultsLoaded',
+      data: results
+    });
   };
   return (
     <div>
       <SearchBar userSearch={search}/>
-      {
-        response.map(({node: {login}}) => {
-          return <div key={login}>{login}</div>;
-        })
-      }
+      <UserResults users={userList}/>
     </div>
   );
 };
