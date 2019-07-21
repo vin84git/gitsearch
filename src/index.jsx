@@ -11,7 +11,7 @@ export const mount = async function () {
   const JSON = await Response.data;
   render(
     <HotApp JSON={JSON}/>,
-    document.getElementById('root')
+    document.getElementById('root') || document.createElement('div')
   );
 };
 
