@@ -15,6 +15,19 @@ const userSearch = async (searchTerm) => {
                 ...on User {
                   login
                   avatarUrl
+                  url
+                  repositories {
+                    totalCount
+                  }
+                  contributionsCollection {
+                    contributionCalendar {
+                      totalContributions
+                    }
+                    totalCommitContributions
+                    totalPullRequestContributions
+                    
+                  }
+                  createdAt
                 }
               }
             }

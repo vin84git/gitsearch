@@ -5,61 +5,181 @@
         {
           "node": {
             "login": "jcotton42",
-            "avatarUrl": "https://avatars2.githubusercontent.com/u/5257450?v=4"
+            "avatarUrl": "https://avatars2.githubusercontent.com/u/5257450?v=4",
+            "url": "https://github.com/jcotton42",
+            "repositories": {
+              "totalCount": 18
+            },
+            "contributionsCollection": {
+              "contributionCalendar": {
+                "totalContributions": 45
+              },
+              "totalCommitContributions": 25,
+              "totalPullRequestContributions": 3
+            },
+            "createdAt": "2013-08-18T23:10:01Z"
           }
         },
         {
           "node": {
             "login": "JCotton1123",
-            "avatarUrl": "https://avatars0.githubusercontent.com/u/2660972?v=4"
+            "avatarUrl": "https://avatars0.githubusercontent.com/u/2660972?v=4",
+            "url": "https://github.com/JCotton1123",
+            "repositories": {
+              "totalCount": 32
+            },
+            "contributionsCollection": {
+              "contributionCalendar": {
+                "totalContributions": 350
+              },
+              "totalCommitContributions": 4,
+              "totalPullRequestContributions": 4
+            },
+            "createdAt": "2012-10-27T00:56:41Z"
           }
         },
         {
           "node": {
             "login": "jcotton36",
-            "avatarUrl": "https://avatars2.githubusercontent.com/u/42688879?v=4"
+            "avatarUrl": "https://avatars2.githubusercontent.com/u/42688879?v=4",
+            "url": "https://github.com/jcotton36",
+            "repositories": {
+              "totalCount": 20
+            },
+            "contributionsCollection": {
+              "contributionCalendar": {
+                "totalContributions": 22
+              },
+              "totalCommitContributions": 1,
+              "totalPullRequestContributions": 0
+            },
+            "createdAt": "2018-08-25T04:04:53Z"
           }
         },
         {
           "node": {
             "login": "jcotton",
-            "avatarUrl": "https://avatars0.githubusercontent.com/u/3043937?v=4"
+            "avatarUrl": "https://avatars0.githubusercontent.com/u/3043937?v=4",
+            "url": "https://github.com/jcotton",
+            "repositories": {
+              "totalCount": 0
+            },
+            "contributionsCollection": {
+              "contributionCalendar": {
+                "totalContributions": 0
+              },
+              "totalCommitContributions": 0,
+              "totalPullRequestContributions": 0
+            },
+            "createdAt": "2012-12-14T16:14:21Z"
           }
         },
         {
           "node": {
             "login": "jcottongit",
-            "avatarUrl": "https://avatars1.githubusercontent.com/u/16517491?v=4"
+            "avatarUrl": "https://avatars1.githubusercontent.com/u/16517491?v=4",
+            "url": "https://github.com/jcottongit",
+            "repositories": {
+              "totalCount": 23
+            },
+            "contributionsCollection": {
+              "contributionCalendar": {
+                "totalContributions": 965
+              },
+              "totalCommitContributions": 627,
+              "totalPullRequestContributions": 125
+            },
+            "createdAt": "2016-01-02T14:37:32Z"
           }
         },
         {
           "node": {
             "login": "jcotton3",
-            "avatarUrl": "https://avatars2.githubusercontent.com/u/8144208?v=4"
+            "avatarUrl": "https://avatars2.githubusercontent.com/u/8144208?v=4",
+            "url": "https://github.com/jcotton3",
+            "repositories": {
+              "totalCount": 0
+            },
+            "contributionsCollection": {
+              "contributionCalendar": {
+                "totalContributions": 0
+              },
+              "totalCommitContributions": 0,
+              "totalPullRequestContributions": 0
+            },
+            "createdAt": "2014-07-12T15:22:06Z"
           }
         },
         {
           "node": {
             "login": "jcottongim",
-            "avatarUrl": "https://avatars3.githubusercontent.com/u/52169436?v=4"
+            "avatarUrl": "https://avatars3.githubusercontent.com/u/52169436?v=4",
+            "url": "https://github.com/jcottongim",
+            "repositories": {
+              "totalCount": 0
+            },
+            "contributionsCollection": {
+              "contributionCalendar": {
+                "totalContributions": 1
+              },
+              "totalCommitContributions": 0,
+              "totalPullRequestContributions": 0
+            },
+            "createdAt": "2019-06-24T15:13:18Z"
           }
         },
         {
           "node": {
             "login": "jcottonRomz-com",
-            "avatarUrl": "https://avatars2.githubusercontent.com/u/10100609?v=4"
+            "avatarUrl": "https://avatars2.githubusercontent.com/u/10100609?v=4",
+            "url": "https://github.com/jcottonRomz-com",
+            "repositories": {
+              "totalCount": 0
+            },
+            "contributionsCollection": {
+              "contributionCalendar": {
+                "totalContributions": 0
+              },
+              "totalCommitContributions": 0,
+              "totalPullRequestContributions": 0
+            },
+            "createdAt": "2014-12-06T20:30:45Z"
           }
         },
         {
           "node": {
             "login": "jcotton2",
-            "avatarUrl": "https://avatars3.githubusercontent.com/u/10546717?v=4"
+            "avatarUrl": "https://avatars3.githubusercontent.com/u/10546717?v=4",
+            "url": "https://github.com/jcotton2",
+            "repositories": {
+              "totalCount": 0
+            },
+            "contributionsCollection": {
+              "contributionCalendar": {
+                "totalContributions": 0
+              },
+              "totalCommitContributions": 0,
+              "totalPullRequestContributions": 0
+            },
+            "createdAt": "2015-01-15T12:35:58Z"
           }
         },
         {
           "node": {
             "login": "jcotton123",
-            "avatarUrl": "https://avatars1.githubusercontent.com/u/18016123?v=4"
+            "avatarUrl": "https://avatars1.githubusercontent.com/u/18016123?v=4",
+            "url": "https://github.com/jcotton123",
+            "repositories": {
+              "totalCount": 0
+            },
+            "contributionsCollection": {
+              "contributionCalendar": {
+                "totalContributions": 0
+              },
+              "totalCommitContributions": 0,
+              "totalPullRequestContributions": 0
+            },
+            "createdAt": "2016-03-22T21:01:00Z"
           }
         }
       ]

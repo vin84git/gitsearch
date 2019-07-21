@@ -1,17 +1,18 @@
 import React from 'react';
 import {array} from 'prop-types';
 
-const userList = ({users}) => (
+const userList = ({selectUser, users}) => (
   <section>
     {users.map(({node}) => {
       const {avatarUrl, login} = node;
       return (
         <div
           key={login}
+          onClick={() => selectUser(login)}
           data-testid="user"
         >
           {login}
-          <img src={avatarUrl}/>
+          <img src={avatarUrl} alt={login}/>
         </div>
       );
     })}
