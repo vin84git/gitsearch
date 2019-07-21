@@ -11,7 +11,7 @@ import mockUserProfile from '../__mocks__/userProfile';
 const {data: {search: {edges: users}}} = mockUserList;
 
 storiesOf('The App', module)
-  .add('Search bar', () => <SearchBar userSearchBar={() => {}}/>)
+  .add('Search bar', () => <SearchBar userSearch={() => {}}/>)
   .add('Search page', () => <App/>)
   .add('User results', () => <UserResults users={users}/>)
-  .add('User results', () => <UserProfile profile={mockUserProfile}/>);
+  .add('User profile', () => <UserProfile profile={mockUserProfile}/>);
