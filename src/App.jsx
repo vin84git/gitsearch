@@ -1,16 +1,12 @@
 import React from 'react';
-import Style from './App.scss';
+import SearchBar from './components/SearchBar';
 
-const App = (props) => {
+const App = () => {
 
   return (
-    <>
-      {
-        props.JSON.items.map(user => {
-          return <div className={Style.something}>{user.login}</div>;
-        })
-      }
-    </>
+    <div>
+      <SearchBar userSearch={() => {}}/>
+    </div>
   );
 };
 
