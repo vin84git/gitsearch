@@ -1,16 +1,22 @@
 import React from 'react';
-import {number, shape, string} from 'prop-types';
 import Styles from './UserProfile.scss';
+import {useStateValue} from '../../store';
 
-const UserProfile = ({profile}) => {
-  const {avatarUrl, contributionsCollection, createdAt, login, repositories, url} = profile;
+const UserProfile = () => {
+  const [{profile}] = useStateValue();
+  const {avatarUrl, contributionsCollection = {}, createdAt, login, repositories = {}, url} = profile;
   const {
-    contributionCalendar: {totalContributions},
+    contributionCalendar: {totalContributions} = {},
     totalCommitContributions,
     totalPullRequestContributions
   } = contributionsCollection;
   const {totalCount: totalRepos} = repositories;
+  if (!profile.login) {
+    return null;
+  }
+
   return (
+    <>
     <article className={Styles.profile}>
       <h2>{login}</h2>
       <span>{totalRepos} Repositories</span>
@@ -24,26 +30,8 @@ const UserProfile = ({profile}) => {
       </div>
       <a href={url} target="_blank" rel="noopener noreferrer">View profile on Github</a>
     </article>
+    </>
   );
-};
-
-UserProfile.propTypes = {
-  profile: shape({
-    avatarUrl: string.string,
-    createdAt: string.string,
-    login: string.string,
-    repositories: shape({
-      totalCount: number.isRequired
-    }).isRequired,
-    url: string.string,
-    contributionsCollection: shape({
-      totalCommitContributions: number.isRequired,
-      totalPullRequestContributions: number.isRequired,
-      contributionCalendar: shape({
-        totalContributions: number.isRequired
-      }).isRequired
-    })
-  }).isRequired
 };
 
 export default UserProfile;

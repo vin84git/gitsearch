@@ -1,21 +1,17 @@
-import React, {useReducer} from 'react';
-import userQuery from './api/queries/users';
+import React from 'react';
 import SearchBar from './components/SearchBar';
-import UserProfile from './components/UserProfile';
 import UserResults from './components/UserResults';
+import UserProfile from './components/UserProfile';
 import Style from './App.scss';
+import {StateProvider, FETCHING_RESULTS, PROFILE_SELECTED, RESULTS_LOADED} from './store';
 
-const FETCHING_RESULTS = 'FETCHING_RESULTS';
-const PROFILE_SELECTED = 'PROFILE_SELECTED';
-const RESULTS_LOADED = 'RESULTS_LOADED';
-
-const initialState = {
+export const initialState = {
   loading: false,
   profile: {},
   userList: []
 };
 
-const reducer = (state, action) => {
+export const reducer = (state, action) => {
   switch (action.type) {
     case FETCHING_RESULTS:
       return {
@@ -40,40 +36,19 @@ const reducer = (state, action) => {
   }
 };
 
-const App = () => {
-  const [{profile, loading, noResults, userList}, dispatch] = useReducer(reducer, initialState);
-  const search = async (value) => {
-    dispatch({
-      type: FETCHING_RESULTS
-    });
-    const results = await userQuery(value);
-    dispatch({
-      type: RESULTS_LOADED,
-      data: results
-    });
-  };
-  const selectUser = (userLogin) => {
-    const {node} = userList.find(({node}) => node.login === userLogin);
-    dispatch({
-      type: PROFILE_SELECTED,
-      data: node
-    });
-  };
-
-  return (
+const App = () => (
+  <StateProvider initialState={initialState} reducer={reducer}>
     <div className={Style.container}>
       <header>
         <h1>Github Search</h1>
-        <SearchBar userSearch={search}/>
+        <SearchBar />
       </header>
       <div className={Style.content}>
-        {loading && <span>Loading results...</span>}
-        {noResults && <span>No results found</span>}
-        <UserResults users={userList} selectUser={selectUser}/>
-        {profile.login && <UserProfile profile={profile}/>}
+        <UserResults />
+        <UserProfile />
       </div>
     </div>
-  );
-};
+  </StateProvider>
+);
 
 export default App;

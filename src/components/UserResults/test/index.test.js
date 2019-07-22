@@ -1,25 +1,43 @@
 import React from 'react';
 import '@testing-library/react/cleanup-after-each';
-import {fireEvent, render} from '@testing-library/react';
+import {render} from '@testing-library/react';
 import UserResults from '..';
 import userList from '../../../../__mocks__/userList';
+import {StateProvider} from '../../../store';
+import {reducer} from '../../../App';
 
 const {data: {search: {edges: users}}} = userList;
 
 describe('<UserResults />', () => {
-  const props = {
-    selectUser: jest.fn(),
-    users
-  };
 
   it('displays the search results', () => {
-    const {getAllByTestId} = render(<UserResults {...props} />);
+    const initialState = {
+      loading: false,
+      profile: {},
+      userList: users
+    };
+ 
+    const {getAllByTestId} = render(
+      <StateProvider initialState={initialState} reducer={reducer}>
+        <UserResults />
+      </StateProvider>
+    );
     expect(getAllByTestId('user').length).toEqual(users.length);
   });
 
-  it('returns the selected user login', () => {
-    const {getByText} = render(<UserResults {...props} />);
-    fireEvent.click(getByText(users[2].node.login));
-    expect(props.selectUser).toHaveBeenCalledWith(users[2].node.login);
+  it('displays no results found', () => {
+    const initialState = {
+      loading: false,
+      profile: {},
+      noResults: true,
+      userList: []
+    };
+    
+    const {getByText} = render(
+      <StateProvider initialState={initialState} reducer={reducer}>
+        <UserResults />
+      </StateProvider>
+    );
+    expect(getByText(/No results found/i)).toBeTruthy();
   });
 });

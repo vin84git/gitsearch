@@ -2,21 +2,30 @@ import React from 'react';
 import {fireEvent, render} from '@testing-library/react';
 import '@testing-library/react/cleanup-after-each';
 import Search from '..';
+import {StateProvider} from '../../../store';
+import {initialState, reducer} from '../../../App';
+import userQuery from '../../../api/queries/users';
+
+jest.mock('../../../api/queries/users', () => ({
+  __esModule: true,
+  default: jest.fn(() => Promise.resolve({data: 'data'}))
+}));
 
 describe('<Search />', () => {
-  const props = {
-    userSearch: jest.fn()
-  };
   const searchTerm = 'jcottongit';
   const inputPlaceholder = /search by github username/i;
 
   it('performs a search on enter', () => {
-    const {getByPlaceholderText} = render(<Search {...props} />);
+    const {getByPlaceholderText} = render(
+      <StateProvider initialState={initialState} reducer={reducer}>
+        <Search />
+      </StateProvider>
+    );
     fireEvent.keyDown(
       getByPlaceholderText(inputPlaceholder),
       {keyCode: 81}
     );
-    expect(props.userSearch).not.toHaveBeenCalled();
+    expect(userQuery).not.toHaveBeenCalled();
     fireEvent.change(
       getByPlaceholderText(inputPlaceholder),
       {target: {value: searchTerm}},
@@ -25,6 +34,6 @@ describe('<Search />', () => {
       getByPlaceholderText(inputPlaceholder),
       {keyCode: 13}
     );
-    expect(props.userSearch).toHaveBeenCalledWith(searchTerm);
+    expect(userQuery).toHaveBeenCalledWith(searchTerm);
   });
 });

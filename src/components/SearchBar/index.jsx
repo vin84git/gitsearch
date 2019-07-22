@@ -1,10 +1,24 @@
 import React, {useState} from 'react';
-import {func} from 'prop-types';
+import userQuery from '../../api/queries/users';
+import {useStateValue, FETCHING_RESULTS, RESULTS_LOADED} from '../../store';
 
-const SearchBox = ({userSearch}) => {
+const SearchBox = () => {
+  const [{loading}, dispatch] = useStateValue();
   const [searchTerm, setSearchTerm] = useState('');
+
+  const search = async (value) => {
+    dispatch({
+      type: FETCHING_RESULTS
+    });
+    const results = await userQuery(value);
+    dispatch({
+      type: RESULTS_LOADED,
+      data: results
+    });
+  };
+
   const submitSearch = () => {
-    userSearch(searchTerm);
+    search(searchTerm);
     setSearchTerm('');
   };
   const keyPress = (e) => {
@@ -21,6 +35,7 @@ const SearchBox = ({userSearch}) => {
         placeholder="Search by Github username"
         type="text"
         value={searchTerm}
+        disabled={loading}
       />
       <button
         title="Search"
@@ -30,10 +45,6 @@ const SearchBox = ({userSearch}) => {
       </button>
     </div>
   );
-};
-
-SearchBox.propTypes = {
-  userSearch: func.isRequired
 };
 
 export default SearchBox;
